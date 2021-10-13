@@ -54,7 +54,7 @@ body {
   font-size: 1.2em;
 }
 
-.points {
+.playto {
   position: absolute;
   margin-left: 5px;
   padding: 2px 5px;
@@ -62,7 +62,7 @@ body {
   transform: translateY(25px);
 }
 
-.points:hover {
+.playto:hover {
   cursor: pointer;
 }
 
