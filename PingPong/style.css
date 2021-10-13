@@ -1,0 +1,121 @@
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 450px;
+  height: 512px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0px 10px 10px rgb(0, 0, 0, 0.2);
+}
+
+.img-container {
+  width: 100%;
+  height: 50%;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  margin: 0;
+  padding: 15px 15px 12px;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0px 2px 2px rgb(0, 0, 0, 0.2);
+}
+
+.score-container {
+  padding: 0 20px;
+  box-shadow: 0px 2px 2px rgb(0, 0, 0, 0.2);
+}
+
+.score-container h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 2.5em;
+}
+
+.score-container p {
+  margin: 0;
+}
+
+.score-container h4 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 1.2em;
+}
+
+.points {
+  position: absolute;
+  margin-left: 5px;
+  padding: 2px 5px;
+  border-radius: 20px;
+  transform: translateY(25px);
+}
+
+.points:hover {
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: stretch;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 1.1em;
+}
+
+.btn:nth-of-type(1) {
+  background-color: #06d6a0;
+}
+
+.btn:nth-of-type(1):hover {
+  background-color: #0fa079;
+  cursor: pointer;
+}
+
+.btn:nth-of-type(2) {
+  background-color: #118ab2;
+}
+
+.btn:nth-of-type(2):hover {
+  background-color: #196781;
+  cursor: pointer;
+}
+
+.btn:nth-of-type(3) {
+  background-color: #ef476f;
+}
+
+.btn:nth-of-type(3):hover {
+  background-color: #c54462;
+  cursor: pointer;
+}
+
+.winner {
+  color: #06d6a0;
+}
+
+.loser {
+  color: #ef476f;
+}
+
+.end-game {
+  opacity: 50%;
+}
