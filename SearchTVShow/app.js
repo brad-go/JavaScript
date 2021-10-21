@@ -11,6 +11,8 @@ form.addEventListener('submit', async (e) => {
   const config = { params: { q: userInput } }
   // axios를 사용해서 영화에 대한 정보를 받아온다. 
   const res = await axios.get(`https://api.tvmaze.com/search/shows`, config);
+  console.dir(res.data[0].show.summary);
+  deleteImages();
   makeImages(res.data);
 });
 
@@ -18,22 +20,34 @@ form.addEventListener('submit', async (e) => {
 // 매개변수로 res.data( 받아온 영화의 데이터 )
 const makeImages = (shows) => {
   for(result of shows) {
-    // box를 만들어서 그 안에 영화의 이미지, 제목, 별점을 집어넣고, 그렇게 만든 box를 showbox에 집어넣기 
-    const box = document.createElement('div')
-    box.setAttribute('class', 'show-box');
+    // card를 만들어서 그 안에 영화의 이미지, 제목, 별점을 집어넣고, 그렇게 만든 box를 showbox에 집어넣기 
+    const card = document.createElement('div')
+    card.setAttribute('class', 'cards');
     // 이미지가 있다면 이미지를 표시
     if(result.show.image) {
       const img = document.createElement('img');
       img.src = result.show.image.medium;
-      box.append(img);
+      card.append(img);
     }
+    // 영화 이름 추가
     const name = document.createElement('name');
     name.setAttribute('class', 'show-name');
     name.innerText = result.show.name;
+    // 영화 별점 추가
     const score = document.createElement('span');
     score.setAttribute('class', 'score');
     score.innerText = Math.floor(result.score*100)/10;
-    box.append(name, score);
-    showbox.appendChild(box);
+    // 카드에 영화와 별점 넣기
+    card.append(name, score);
+    // 화면에 추가해주기
+    showbox.appendChild(card);
+  }
+}
+
+// 검색할 때마다 새로운 정보를 위해 카드들을 삭제하는 함수
+const deleteImages = () => {
+  const cards = document.querySelectorAll('.cards');
+  for(let card of cards) {
+    card.remove();
   }
 }

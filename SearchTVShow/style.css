@@ -74,7 +74,7 @@ body {
   justify-content: space-evenly;
 }
 
-.show-box {
+.cards {
   margin: 10px;
   padding: 10px;
   border: 1px solid #606c38;
@@ -85,7 +85,7 @@ body {
   transition: 0.3s ease-in;
 }
 
-.show-box:hover {
+.cards:hover {
   transform: translateY(-15px);
 }
 
@@ -105,4 +105,11 @@ body {
   color: #bc6c25;
   font-size: 1.2em;
   font-weight: 600;
+}
+
+.detail {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2, 2);
 }
