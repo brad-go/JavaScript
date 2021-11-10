@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <section id="container">
+      <header>
+        <!-- search -->
+        <div id="searchContainer">
+          <button>Links</button>
+          <form id="searchForm" action="https://www.google.com/search">
+            <label for="search"></label>
+            <input type="text" id="search" name="q">
+          </form>
+        </div>
+        <!-- weather -->
+        <div id="weatherContainer">
+          <div id="weathermain">
+            <img id="weatherIcon"></img>
+            <span id="weather"></span>
+          </div>
+          <span id="temperature"></span>
+          <span id="city"></span>
+        </div>
+      </header>
+      <!-- clock -->
+      <h1 id="clock"></h1>
+      <!-- mine: greeting -->
+      <h2 id="greeting" class="hidden"></h2>
+      <!-- login form -->
+      <form id="loginForm" action="" class="hidden">
+        <label for="loginInput">Hello, what's your name?</label>
+        <input type="text" id="loginInput" />
+      </form>
+      <!-- todo form -->
+      <form id="todoForm" action="">
+        <label for="todoInput">What is your main focus today?</label>
+        <input type="text" id="todoInput" />
+      </form>
+      <!-- qutoes -->
+      <div id="quoteList">
+        <span id="quote"></span>
+        <span id="author" class="hidden"></span>
+      </div>
+    </section>
+    <!-- todo screen -->
+    <section id="todoContainer">
+      <ul id="todoList"></ul>
+    </section>
+  </body>
+  <script src="js/login.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/quote.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/weather.js"></script>
+</html>
