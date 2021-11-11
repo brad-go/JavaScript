@@ -1,8 +1,7 @@
-// 랜덤으로 배경화면 변경하기
-const container = document.querySelector('#container');
+//랜덤으로 배경화면 변경하기
+const size = Math.floor(Math.random() * 1000) + 400;
 
-const img = document.createElement('img');
-const src = `http://source.unsplash.com/random/1600*900?landscape`;
+const src = `http://source.unsplash.com/random/${size}*${size}?landscape`;
+const url = `url(${src})`;
 
-img.src = src;
-container.appendChild(img);
+document.body.style.backgroundImage = url;

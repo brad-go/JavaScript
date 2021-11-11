@@ -1,0 +1,24 @@
+.quote-list {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quote-list:hover .quote {
+  transform: translateY(-30%);
+}
+
+.quote-list:hover .author {
+  opacity: 80%;
+}
+
+.quote {
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.author {
+  display: block;
+}

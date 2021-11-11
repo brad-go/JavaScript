@@ -1,5 +1,5 @@
 const weatherContainer = document.querySelector('#weatherContainer');
-const weather = document.querySelector('#weather');
+// const weather = document.querySelector('#weather');
 const weatherIcon = document.querySelector('#weatherIcon');
 const temperature = document.querySelector('#temperature');
 const city = document.querySelector('#city');
@@ -19,12 +19,12 @@ function onGeoSuccess(position) {
     // response 객체가 가진 api 정보를 통해 날씨 정보 설정하기
     .then(res => {      
       weatherIcon.src = `https://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`
-      weather.innerText = res.data.weather[0].main;
+      // weather.innerText = res.data.weather[0].main;
       city.innerText = res.data.name;
       temperature.innerText = `${res.data.main.temp}°C`;
     })
     .catch(err => {
-      console.log('ERROR!', err);
+      console.log('ERROR!!', err);
     })
 }
 

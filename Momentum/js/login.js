@@ -20,6 +20,8 @@ const paintGreeting = (username) => {
   }
 
   greeting.classList.remove(HIDDEN_CLASSNAME);
+  clock.classList.remove(HIDDEN_CLASSNAME);
+  todoForm.classList.remove(HIDDEN_CLASSNAME);
 }
 
 function onLoginSubmit(e) {
