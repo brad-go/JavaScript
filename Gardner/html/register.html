@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <title>QR코드 호출</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- 뒤로 가기 버튼-->
+        <a id="moveToMain" class="move-to-main" href="../html/main.html">
+          <div class="back-btn">
+            <img
+              id="backBtnIcon"
+              class="back-btn-icon"
+              src="https://cdn1.iconfinder.com/data/icons/essentials-pack/96/left_arrow_back_previous_navigation-512.png"
+              alt=""
+            />
+          </div>
+        </a>
+        <h2 class="title">QR코드 호출</h2>
+      </nav>
+    </header>
+    <main>
+      <section id="aware" class="aware">
+        <div id="camera" class="camera"></div>
+        <h2 id="awarePhrase" class="aware-phrase">QR코드를 인식해주세요.</h2>
+        <p class="sub-phrase">
+          조회하려는 차량의 QR코드를 화면에 중앙에 위치시키세요.
+        </p>
+      </section>
+      <section id="additional" class="additional">
+        <div id="enterCode" class="add">
+          <div class="add-box">
+            <img
+              class="add-icon"
+              src="https://cdn4.iconfinder.com/data/icons/font-awesome-regular/576/keyboard-512.png"
+              alt=""
+            />
+          </div>
+          <span>코드번호 입력</span>
+        </div>
+        <div id="flash" class="add">
+          <div class="add-box">
+            <img
+              class="add-icon"
+              src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/flash_light-512.png"
+              alt=""
+            />
+          </div>
+          <span>손전등</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
