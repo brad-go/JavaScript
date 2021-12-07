@@ -1,21 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>가드너</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="js/jsQR.js"></script>
   </head>
   <body>
-    <div id="appImageBox" class="app-image-box">
-      <img class="app-image" src="" alt="" />
+    <div class="container-doc">
+      <!-- 로고, 어플명, 검색, 햄버거 버튼을 가진 헤더-->
+      <header class="doc-header">
+        <div class="doc-wrap">
+          <h1 class="doc-title">
+            <a class="doc-title" href="">
+              <span>Gardner</span>
+            </a>
+          </h1>
+          <div class="btn-wrap">
+            <button class="btn-user" type="button">
+              <div class="img-wrap btn-user__user-wrap">
+                <img
+                  class="img-user"
+                  src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                  alt=""
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="call-notice hidden">
+          <div class="call-notice__header">
+            <h2>차량 호출</h2>
+          </div>
+          <div class="call-notice__main">
+            <h1>162나 7907</h1>
+            <p>차량 호출입니다.</p>
+          </div>
+          <div class="call-notice__footer">
+            <button id="callOff" class="btn-call-notice">알람 끄기</button>
+            <button id="callConfirm" class="btn-call-notice">확인</button>
+          </div>
+        </div>
+      </header>
+      <main class="doc-main">
+        <!-- 뒤로 가기 버튼 -->
+        <button class="btn-back hidden">
+          <div class="img-wrap">
+            <img
+              class="img-back"
+              src="https://cdn3.iconfinder.com/data/icons/internet-relative/200/Back_1-512.png"
+              alt=""
+            />
+          </div>
+          <span class="btn-back__text">뒤로가기</span>
+        </button>
+        <!-- 기본 홈 페이지 -->
+        <section id="mainPage" class="main-page page">
+          <!-- 차량에 대한 정보가 담긴 번호판, 혹은 qr 코드 등록해 주세요 알림 -->
+          <div class="license-plate-wrap">
+            <div class="license-plate">
+              <div class="license-plate__screw"></div>
+              <h2 class="license">QR 코드를 등록해주세요.</h2>
+              <div class="license-plate__screw"></div>
+            </div>
+          </div>
+          <!-- 개인 페이지로 qr코드를 스캔할 수 있는 버튼-->
+          <div class="btn-scan-wrap">
+            <button id="btnScan" class="btn-scan">
+              <div class="img-wrap">
+                <img
+                  class="img-scan"
+                  src="https://ko.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/basic_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png"
+                  alt=""
+                />
+                <img
+                  class="btn-scan__text__img"
+                  src="https://cdn2.iconfinder.com/data/icons/economic-part-3/100/qr-scan-512.png"
+                  alt=""
+                />
+                <h2 class="btn-scan__text">QR코드 스캔하기</h2>
+              </div>
+            </button>
+            <p>QR코드를 스캔하고 차량을 확인하세요.</p>
+          </div>
+          <!-- 알림 혹은 전화로 받을 수 있는 설정 버튼, 수신기록 버튼, 개인 정보 버튼 -->
+          <div class="main-page__footer">
+            <p class="slider-notice">알림으로 연락을 받습니다.</p>
+            <button class="btn-records">
+              <div class="img-wrap">
+                <img
+                  class="img-record hidden"
+                  src="https://cdn4.iconfinder.com/data/icons/healthcare-54/32/Healthcare_medical_healthcare_file_records-512.png"
+                  alt=""
+                />
+                <img
+                  class="img-record"
+                  src="https://cdn4.iconfinder.com/data/icons/healthcare-55/32/Healthcare_medical_healthcare_file_records-256.png"
+                  alt=""
+                />
+              </div>
+            </button>
+            <div class="slider-wrap">
+              <label
+                for="slider"
+                id="sliderLabel2"
+                class="slider-label-2 hidden"
+                >전화로 받기</label
+              >
+              <label
+                id="sliderLabel"
+                class="slider-label"
+                for="slider"
+                data-text="알림으로 받기"
+                >알림으로 받기</label
+              >
+              <input
+                id="slider"
+                class="slider"
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- 수신 기록 확인 페이지 -->
+        <section id="recordPage" class="record-page page hidden"></section>
+        <!-- qr코드를 인식하는 스캐너 기능 구현 -->
+        <!-- 스캔하기 버튼을 눌렀을 때 밑에서 위로 올라오게 -->
+        <section id="qrPage" class="qr-page page hidden">
+          <div class="qr-header">
+            <h2 class="qr-header__title">QR코드 호출</h2>
+          </div>
+          <div class="qr-main">
+            <div id="qrAware" class="qr-aware">
+              <!-- qr 코드 스캐너 -->
+              <div class="qr-aware__camera">
+                <div id="loadingMessage"></div>
+                <canvas id="canvas" hidden></canvas>
+              </div>
+              <h1 class="qr-aware__text">QR코드를 인식해주세요.</h1>
+              <p class="qr-aware__sub-text">
+                조회하려는 차량의 QR코드를 화면에 중앙에 위치시키세요.
+              </p>
+            </div>
+          </div>
+          <div class="qr-footer">
+            <button class="btn-qr-footer">
+              <div class="img-wrap-2">
+                <img
+                  class="img-code"
+                  src="https://cdn4.iconfinder.com/data/icons/font-awesome-regular/576/keyboard-512.png"
+                  alt=""
+                />
+              </div>
+              <span>코드번호 입력</span>
+            </button>
+            <button class="btn-qr-footer">
+              <div class="img-wrap-2">
+                <img
+                  class="img-flash"
+                  src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/flash_light-512.png"
+                  alt=""
+                />
+              </div>
+              <span>손전등</span>
+            </button>
+          </div>
+        </section>
+        <!-- qr을 통해 인식한 차량에 대한 정보와 호출할 수 있는 버튼 -->
+        <section id="summonPage" class="summon-page page hidden">
+          <div class="info-car">
+            <h2 class="summon-car">KIA 모닝</h2>
+            <div class="license-plate-wrap">
+              <div class="license-plate">
+                <div class="license-plate__screw"></div>
+                <h3 class="license">
+                  <span class="encrypted-number">*** *</span>7907
+                </h3>
+                <div class="license-plate__screw"></div>
+              </div>
+            </div>
+          </div>
+          <div class="summon-request">
+            <button class="summon-loader">
+              <span class="summon-loader__inner">호출</span>
+            </button>
+            <div class="summon-text__onLoaing">
+              <h1>차주에게 알림으로 호출합니다.</h1>
+            </div>
+            <div class="summon-text__onLoaded hidden">
+              <h1>호출 요청이 완료되었습니다.</h1>
+            </div>
+            <button class="btn-resummon hidden">다시 호출하기</button>
+          </div>
+        </section>
+      </main>
     </div>
-    <section id="appInfo" class="app-info">
-      <div class="information">
-        <h1 class="catchphrase">QR을 찍고 차주에게 연결하세요.</h1>
-        <p class="detail-info"></p>
-      </div>
-    </section>
-    <a href="./html/main.html">시작하기</a>
+    <script src="js/slider.js"></script>
+    <script src="js/summon.js"></script>
+    <script src="js/buttons.js"></script>
+    <script src="js/qr.js"></script>
   </body>
 </html>
