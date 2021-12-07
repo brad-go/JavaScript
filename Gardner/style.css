@@ -271,7 +271,7 @@ img[class^="img-"] {
   padding: 0 8px;
   border-radius: 15% / 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  appearance: none;
+  -webkit-appearance: none;
   /* transform: translateX(-5%); */
   /* z-index: 2; */
 }
@@ -285,7 +285,7 @@ img[class^="img-"] {
   background-position: center;
   background-size: cover;
   filter: invert(100%);
-  appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
